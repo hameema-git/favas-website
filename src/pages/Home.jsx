@@ -209,15 +209,19 @@ export default function Home() {
         <div className="container">
           <div className="ai-grid">
             <div className="ai-left">
-              <div className="eyebrow" style={{color:'var(--g4)'}}><div className="eyebrow-dot" style={{background:'var(--g4)'}}/>AI-Powered</div>
-              <h2 className="section-heading" style={{color:'#fff'}}>Free AI Tax<br/>Assistant</h2>
-              <p className="ai-desc">Get instant answers to GST, Income Tax, PAN, TAN, DSC and compliance questions. Powered by AI — completely free, no login required.</p>
+              <div className="eyebrow" style={{color:'var(--g4)'}}><div className="eyebrow-dot" style={{background:'var(--g4)'}}/>GST & TAX SUPPORT</div>
+              <h2 className="section-heading" style={{color:'#fff'}}>Quick GST & Tax<br/>Help Desk</h2>
+              <p className="ai-desc">Get instant answers to GST, Income Tax, PAN, TAN, DSC, MSME and Company Registration questions.</p>
               <div className="ai-badges">
                 {['✓ GST Queries','✓ Tax Planning','✓ PAN/TAN Help','✓ DSC Info','✓ Company Law'].map(b=>(
                   <div key={b} className="ai-badge">{b}</div>
                 ))}
               </div>
-              <div className="ai-disclaimer"><strong>Disclaimer:</strong> AI responses are for general information only and do not constitute professional financial or legal advice.</div>
+              {/* <div className="ai-disclaimer"><strong>Disclaimer:</strong> AI responses are for general information only and do not constitute professional financial or legal advice.</div> */}
+
+              <div className="ai-disclaimer">
+  <strong>Disclaimer:</strong> The information provided is for general guidance only. Please contact Easy Solutions for professional GST, tax, and compliance assistance.
+</div>
             </div>
             <AIChat/>
           </div>

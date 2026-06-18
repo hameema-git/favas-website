@@ -1,16 +1,66 @@
 import { useState, useRef, useEffect } from 'react'
 import { COMPANY } from '../data/content'
 import './AIChat.css'
+import { getBotReply } from "../data/faqBot";
+
+// const CHIPS = [
+//   'What is GST?',
+//   'Who needs to file ITR?',
+//   'PAN vs TAN difference?',
+//   'What is DSC used for?',
+//   'How to register a company?',
+// ]
+
+// const CHIPS = [
+//   'What is GST?',
+//   'GST Registration',
+//   'GST Return Filing',
+//   'Who needs to file ITR?',
+//   'PAN vs TAN',
+//   'What is DSC?',
+//   'MSME Registration',
+//   'Company Registration'
+// ]
 
 const CHIPS = [
-  'What is GST?',
-  'Who needs to file ITR?',
-  'PAN vs TAN difference?',
-  'What is DSC used for?',
-  'How to register a company?',
-]
+  "What is GST?",
+  "GST Registration",
+  "GST Return Filing",
+  "GST Registration Limit",
+  "GSTR-1",
+  "GSTR-3B",
+  "GST Cancellation",
+  "Input Tax Credit (ITC)",
 
-const SYSTEM_PROMPT = `You are a helpful tax assistant for Easy Solutions, a GST and accounting consultancy in Kochi, Kerala, India. Answer questions about GST, Income Tax, PAN, TAN, DSC (Digital Signature Certificate), company registration, MSME, TDS, accounting, and Indian financial compliance in a friendly, concise way. Keep answers under 120 words. Use simple language — imagine explaining to a small business owner or freelancer in Kerala. Always end with: "For personalised advice, contact Easy Solutions at ${COMPANY.phone}." Do not provide specific legal advice.`
+  "Who needs to file ITR?",
+  "What is ITR?",
+  "ITR Due Date",
+  "Tax Saving Options",
+  "Form 16",
+  "Income Tax Refund",
+
+  "PAN vs TAN",
+  "PAN Application",
+  "PAN Correction",
+  "What is TAN?",
+  "TDS Filing",
+
+  "What is DSC?",
+  "DSC Renewal",
+  "Class 3 DSC",
+
+  "Company Registration",
+  "Private Limited Company",
+  "LLP Registration",
+  "Partnership Firm",
+  "MSME Registration",
+
+  "Accounting Services",
+  "Payroll Services",
+  "Bookkeeping"
+];
+
+// const SYSTEM_PROMPT = `You are a helpful tax assistant for Easy Solutions, a GST and accounting consultancy in Kochi, Kerala, India. Answer questions about GST, Income Tax, PAN, TAN, DSC (Digital Signature Certificate), company registration, MSME, TDS, accounting, and Indian financial compliance in a friendly, concise way. Keep answers under 120 words. Use simple language — imagine explaining to a small business owner or freelancer in Kerala. Always end with: "For personalised advice, contact Easy Solutions at ${COMPANY.phone}." Do not provide specific legal advice.`
 
 function timeStr() {
   const d = new Date()
@@ -19,7 +69,24 @@ function timeStr() {
 
 export default function AIChat() {
   const [messages, setMessages] = useState([
-    { role: 'bot', text: '👋 Hi! I\'m your free AI tax assistant. Ask me anything about GST, Income Tax, PAN, TAN, DSC, Company Registration, or any Indian tax compliance question. How can I help?', time: timeStr() }
+    // { role: 'bot', text: '👋 Hi! I\'m your free AI tax assistant. Ask me anything about GST, Income Tax, PAN, TAN, DSC, Company Registration, or any Indian tax compliance question. How can I help?', time: timeStr() }
+    {
+  role: 'bot',
+  text: `👋 Welcome to Easy Solutions.
+
+I can help you with:
+
+✅ GST Registration
+✅ GST Return Filing
+✅ Income Tax Filing
+✅ PAN & TAN Services
+✅ DSC Services
+✅ MSME Registration
+✅ Company Registration
+
+Ask me a question or select one of the options below.`,
+  time: timeStr()
+}
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -30,28 +97,56 @@ export default function AIChat() {
     if (msgsRef.current) msgsRef.current.scrollTop = msgsRef.current.scrollHeight
   }, [messages, loading])
 
+  // async function ask(question) {
+  //   setMessages(prev => [...prev, { role: 'usr', text: question, time: timeStr() }])
+  //   setLoading(true)
+  //   try {
+  //     const res = await fetch('https://api.anthropic.com/v1/messages', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({
+  //         model: 'claude-sonnet-4-6',
+  //         max_tokens: 1000,
+  //         system: SYSTEM_PROMPT,
+  //         messages: [{ role: 'user', content: question }]
+  //       })
+  //     })
+  //     const data = await res.json()
+  //     const reply = data.content?.[0]?.text || 'Sorry, I had trouble with that. Please contact Easy Solutions directly!'
+  //     setMessages(prev => [...prev, { role: 'bot', text: reply, time: timeStr() }])
+  //   } catch {
+  //     setMessages(prev => [...prev, { role: 'bot', text: `I had a connection issue. Please contact Easy Solutions at ${COMPANY.phone} or via WhatsApp!`, time: timeStr() }])
+  //   }
+  //   setLoading(false)
+  // }
+
   async function ask(question) {
-    setMessages(prev => [...prev, { role: 'usr', text: question, time: timeStr() }])
-    setLoading(true)
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: [{ role: 'user', content: question }]
-        })
-      })
-      const data = await res.json()
-      const reply = data.content?.[0]?.text || 'Sorry, I had trouble with that. Please contact Easy Solutions directly!'
-      setMessages(prev => [...prev, { role: 'bot', text: reply, time: timeStr() }])
-    } catch {
-      setMessages(prev => [...prev, { role: 'bot', text: `I had a connection issue. Please contact Easy Solutions at ${COMPANY.phone} or via WhatsApp!`, time: timeStr() }])
+  setMessages(prev => [
+    ...prev,
+    {
+      role: "usr",
+      text: question,
+      time: timeStr()
     }
-    setLoading(false)
-  }
+  ]);
+
+  setLoading(true);
+
+  setTimeout(() => {
+    const reply = getBotReply(question);
+
+    setMessages(prev => [
+      ...prev,
+      {
+        role: "bot",
+        text: reply,
+        time: timeStr()
+      }
+    ]);
+
+    setLoading(false);
+  }, 800);
+}
 
   function handleChip(chip) {
     setChips(prev => prev.filter(c => c !== chip))
@@ -111,7 +206,11 @@ export default function AIChat() {
           </svg>
         </button>
       </div>
-      <div className="ai-footer-note">AI responses are informational only · Not professional advice</div>
+      {/* <div className="ai-footer-note">AI responses are informational only · Not professional advice</div> */}
+
+      <div className="ai-footer-note">
+  Information provided for general guidance only · Contact Easy Solutions for personalised assistance
+</div>
     </div>
   )
 }
