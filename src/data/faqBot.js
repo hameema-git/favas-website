@@ -24,7 +24,8 @@ export const FAQS = [
   },
 
   {
-    keywords: ["gst return", "gstr1", "gstr 3b", "gstr3b"],
+    // keywords: ["gst return", "gstr1", "gstr 3b", "gstr3b"],
+    keywords:["gst return", "gst return filing"],
     answer:
       "GST returns are periodic filings submitted to the GST department. Common returns include GSTR-1 and GSTR-3B."
   },
@@ -35,11 +36,7 @@ export const FAQS = [
       "GST registration can be cancelled when a business closes, turnover falls below limits, or business structure changes."
   },
 
-  {
-    keywords: ["what is gst", "gst"],
-    answer:
-      "GST (Goods and Services Tax) is an indirect tax applied on the supply of goods and services across India."
-  },
+
 
   {
     keywords: ["income tax return", "itr filing", "file itr", "itr"],
@@ -136,12 +133,14 @@ export const FAQS = [
 },
 
 {
-  keywords:["gstr1"],
+//   keywords:["gstr1"],
+keywords:["gstr1", "gstr-1"],
   answer:"GSTR-1 is a monthly or quarterly return containing details of outward supplies made by a business."
 },
 
 {
-  keywords:["gstr3b"],
+//   keywords:["gstr3b"],
+ keywords:["gstr3b", "gstr-3b"],
   answer:"GSTR-3B is a summary GST return that must be filed periodically by registered taxpayers."
 },
 
@@ -383,26 +382,233 @@ export const FAQS = [
 {
   keywords:["consultation"],
   answer:"Easy Solutions provides GST, Tax, Accounting, Compliance, and Business Registration consultation services."
-}
+},
+{
+  keywords:["how to file gst return"],
+  answer:"GST returns can be filed online through the GST portal by preparing sales, purchase and tax details and submitting the applicable return forms."
+},
+
+{
+  keywords:["gst annual return"],
+  answer:"GST Annual Return is a yearly summary return containing details of all GST transactions during a financial year."
+},
+
+{
+  keywords:["gst for freelancers"],
+  answer:"Freelancers may require GST registration depending on turnover, services provided and applicable GST regulations."
+},
+
+{
+  keywords:["gst for online sellers"],
+  answer:"Online sellers operating through e-commerce platforms may need GST registration regardless of turnover limits."
+},
+
+{
+  keywords:["gst documents required"],
+  answer:"GST registration generally requires PAN, Aadhaar, address proof, bank account details and business registration documents."
+},
+
+{
+  keywords:["e-way bill"],
+  answer:"An E-Way Bill is an electronic document required for transporting goods above specified limits under GST regulations."
+},
+
+{
+  keywords:["e-invoice"],
+  answer:"E-Invoicing is a system where invoices are electronically authenticated and assigned an Invoice Reference Number."
+},
+
+{
+  keywords:["why is dsc required"],
+  answer:"DSC is required for secure electronic filing of GST returns, MCA forms, Income Tax filings and government applications."
+},
+
+{
+  keywords:["dsc validity"],
+  answer:"Digital Signature Certificates are issued for a specific validity period and must be renewed before expiry."
+},
+
+{
+  keywords:["dsc for gst"],
+  answer:"DSC can be used for GST registration, return filing and other GST-related online submissions."
+},
+
+{
+  keywords:["dsc for mca"],
+  answer:"DSC is mandatory for most MCA filings including company incorporation and annual compliance filings."
+},
+
+{
+  keywords:["dsc documents required"],
+  answer:"DSC applications generally require identity proof, address proof, photograph and mobile/email verification."
+},
+
+{
+  keywords:["company registration cost"],
+  answer:"Company registration costs depend on company type, government fees, professional charges and compliance requirements."
+},
+
+{
+  keywords:["company registration documents"],
+  answer:"Company registration typically requires PAN, Aadhaar, address proof, photographs and business address documents."
+},
+
+{
+  keywords:["din registration"],
+  answer:"DIN (Director Identification Number) is required for individuals intending to become company directors."
+},
+
+{
+  keywords:["roc filing"],
+  answer:"ROC filing involves submitting statutory company documents and annual returns to the Registrar of Companies."
+},
+
+{
+  keywords:["annual compliance"],
+  answer:"Annual compliance includes ROC filings, financial statements, tax returns and other statutory obligations."
+},
+
+{
+  keywords:["benefits of msme"],
+  answer:"MSME registration provides access to government schemes, subsidies, priority lending and various business benefits."
+},
+
+{
+  keywords:["msme eligibility"],
+  answer:"MSME eligibility depends on investment and turnover criteria as prescribed by government regulations."
+},
+
+{
+  keywords:["msme loan"],
+  answer:"MSME businesses may be eligible for government-supported loan schemes and credit facilities."
+},
+
+{
+  keywords:["msme certificate"],
+  answer:"An MSME certificate is issued after successful Udyam registration and serves as proof of MSME status."
+},
+
+{
+  keywords:["balance sheet"],
+  answer:"A Balance Sheet shows a business's assets, liabilities and owner's equity at a specific date."
+},
+
+{
+  keywords:["profit and loss statement"],
+  answer:"A Profit and Loss Statement summarizes business income, expenses and profit for a specific period."
+},
+
+{
+  keywords:["cash flow statement"],
+  answer:"A Cash Flow Statement tracks money flowing into and out of a business."
+},
+
+{
+  keywords:["inventory accounting"],
+  answer:"Inventory accounting helps businesses track stock, purchases, sales and inventory valuation."
+},
+
+{
+  keywords:["business expenses"],
+  answer:"Business expenses are costs incurred in operating a business and may be eligible for tax deductions."
+},
+
+{
+  keywords:["accounting software"],
+  answer:"Accounting software helps businesses manage bookkeeping, invoicing, financial reports and tax compliance."
+},
+
+{
+  keywords:["salary processing"],
+  answer:"Salary processing includes calculating salaries, deductions, bonuses and generating employee payslips."
+},
+
+{
+  keywords:["payslip generation"],
+  answer:"Payslip generation provides employees with a detailed breakdown of salary, deductions and net pay."
+},
+
+{
+  keywords:["employee compliance"],
+  answer:"Employee compliance includes labour law, PF, ESI, payroll and statutory requirements."
+},
+
+{
+  keywords:["labour compliance"],
+  answer:"Labour compliance ensures adherence to employment laws, wage regulations and employee benefits."
+},
+
+{
+  keywords:["business loan assistance"],
+  answer:"Business loan assistance helps entrepreneurs prepare documentation and applications for financing."
+},
+
+{
+  keywords:["annual filing"],
+  answer:"Annual filing includes statutory returns, tax returns and regulatory compliance submissions."
+},
+
+{
+  keywords:["audit services"],
+  answer:"Audit services help verify financial records and ensure compliance with applicable regulations."
+},
+
+{
+  keywords:["compliance support"],
+  answer:"Compliance support helps businesses meet GST, tax, MCA, labour and other statutory requirements."
+},
+
+{
+  keywords:["how much do your services cost"],
+  answer:"Service charges vary depending on the specific GST, tax, registration or compliance requirement. Please contact Easy Solutions for a quotation."
+},
+
+{
+  keywords:["free consultation"],
+  answer:"Easy Solutions offers consultation services to understand your business requirements and compliance needs."
+},
+
+{
+  keywords:["online services"],
+  answer:"Most GST, tax, registration and compliance services can be provided online across India."
+},
+
+{
+  keywords:["whatsapp documents"],
+  answer:"Yes, you can share documents through WhatsApp for initial review and consultation."
+},
+
+{
+  keywords:["office location"],
+  answer:"Please contact Easy Solutions directly for office address, directions and appointment scheduling."
+},
+  {
+    keywords: ["what is gst", "gst"],
+    answer:
+      "GST (Goods and Services Tax) is an indirect tax applied on the supply of goods and services across India."
+  }
 ];
 
+
 export function getBotReply(question) {
-  const q = question.toLowerCase();
+  const q = question
+    .toLowerCase()
+    .replace(/-/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 
-//   const match = FAQS.find(item =>
-//     item.keywords.some(keyword => q.includes(keyword))
-//   );
+  // Exact match first
+  const match = FAQS.find(item =>
+    item.keywords.some(keyword => {
+      const normalizedKeyword = keyword
+        .toLowerCase()
+        .replace(/-/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
 
-const match = FAQS
-  .sort((a, b) =>
-    Math.max(...b.keywords.map(k => k.length)) -
-    Math.max(...a.keywords.map(k => k.length))
-  )
-  .find(item =>
-    item.keywords.some(keyword =>
-      q.includes(keyword.toLowerCase())
-    )
-  )
+      return q === normalizedKeyword;
+    })
+  );
 
   if (match) {
     return (
@@ -411,6 +617,27 @@ const match = FAQS
     );
   }
 
+  // Partial match second
+  const partialMatch = FAQS.find(item =>
+    item.keywords.some(keyword => {
+      const normalizedKeyword = keyword
+        .toLowerCase()
+        .replace(/-/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      return q.includes(normalizedKeyword);
+    })
+  );
+
+  if (partialMatch) {
+    return (
+      partialMatch.answer +
+      "\n\n📞 Need help? Contact Easy Solutions for personalised assistance."
+    );
+  }
+
+  // Default response
   return `
 Sorry, I couldn't find an exact answer.
 
@@ -418,5 +645,75 @@ Sorry, I couldn't find an exact answer.
 💬 WhatsApp Support Available
 
 Our GST and Tax experts will assist you personally.
-  `;
+`;
 }
+
+// export function getBotReply(question) {
+// //   const q = question.toLowerCase();
+// const q = question
+//   .toLowerCase()
+//   .replace(/-/g, "")
+//   .replace(/\s+/g, " ");
+
+// //   const match = FAQS.find(item =>
+// //     item.keywords.some(keyword => q.includes(keyword))
+// //   );
+
+// // const match = FAQS
+// //   .sort((a, b) =>
+// //     Math.max(...b.keywords.map(k => k.length)) -
+// //     Math.max(...a.keywords.map(k => k.length))
+// //   )
+// //   .find(item =>
+// //     item.keywords.some(keyword =>
+// //       q.includes(keyword.toLowerCase())
+// //     )
+// //   )
+
+// //   if (match) {
+// //     return (
+// //       match.answer +
+// //       "\n\n📞 Need help? Contact Easy Solutions for personalised assistance."
+// //     );
+
+// const match = FAQS.find(item =>
+//   item.keywords.some(keyword => {
+//     const normalizedKeyword = keyword
+//       .toLowerCase()
+//       .replace(/-/g, "")
+//       .replace(/\s+/g, " ");
+
+//     return q === normalizedKeyword;
+//   })
+// );
+
+// if (!match) {
+//   const partialMatch = FAQS.find(item =>
+//     item.keywords.some(keyword => {
+//       const normalizedKeyword = keyword
+//         .toLowerCase()
+//         .replace(/-/g, "")
+//         .replace(/\s+/g, " ");
+
+//       return q.includes(normalizedKeyword);
+//     })
+//   );
+
+//   if (partialMatch) {
+//     return (
+//       partialMatch.answer +
+//       "\n\n📞 Need help? Contact Easy Solutions for personalised assistance."
+//     );
+//   }
+// }
+//   }
+
+//   return `
+// Sorry, I couldn't find an exact answer.
+
+// 📞 Contact Easy Solutions
+// 💬 WhatsApp Support Available
+
+// Our GST and Tax experts will assist you personally.
+//   `;
+// }

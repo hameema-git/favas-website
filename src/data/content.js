@@ -180,7 +180,7 @@ export const TEAM = [
     name: 'Favas Thangal',
     role: 'Founder & Principal Consultant',
     // photo: null, // Replace with: '/team/favas.jpg'
-     photo: '/team/favas.jpeg', 
+      photo: '/team/favas.jpeg', 
     description:
       '8+ years in GST, Income Tax, PAN/TAN, DSC and business registration. Leads every engagement personally with precision and care.',
     avatarColor: '#2D6A4F',
@@ -239,6 +239,10 @@ export const TESTIMONIALS = [
 ]
 
 // ── CERTIFICATES ─────────────────────────────────────────────
+// pdf: put your certificate PDF in /public/certificates/ folder
+//      e.g.  pdf: '/certificates/gst-practitioner.pdf'
+//      Leave as null if you don't have the PDF yet — card still shows, just no click
+// ────────────────────────────────────────────────────────────
 export const CERTIFICATES = [
   {
     icon: '🏅',
@@ -246,6 +250,7 @@ export const CERTIFICATES = [
     desc: 'Enrolled GST Practitioner registered with GSTN portal',
     tag: 'GSTIN Certified',
     color: 'gold',
+    pdf: null, // Replace with: '/certificates/gst-practitioner.pdf'
   },
   {
     icon: '📜',
@@ -253,6 +258,7 @@ export const CERTIFICATES = [
     desc: 'All tax filings reviewed and backed by qualified Chartered Accountants',
     tag: 'CA Assisted',
     color: 'green',
+    pdf: null, // Replace with: '/certificates/ca-assisted.pdf'
   },
   {
     icon: '🔏',
@@ -260,6 +266,7 @@ export const CERTIFICATES = [
     desc: 'Authorised registration agent for Class 2 & 3 Digital Signature Certificates',
     tag: 'DSC Agent',
     color: 'blue',
+    pdf: null, // Replace with: '/certificates/dsc-agent.pdf'
   },
   {
     icon: '🏭',
@@ -267,6 +274,7 @@ export const CERTIFICATES = [
     desc: 'Udyam registered firm with experience in MSME portal filings and advisory',
     tag: 'Udyam',
     color: 'red',
+    pdf: null, // Replace with: '/certificates/msme.pdf'
   },
 ]
 

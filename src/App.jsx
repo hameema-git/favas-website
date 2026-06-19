@@ -1,8 +1,8 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
 import WAFloat from './components/WAFloat'
+import ThemeSwitcher from './components/ThemeSwitcher'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -28,6 +28,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <WAFloat />
+      <ThemeSwitcher />
     </>
   )
 }

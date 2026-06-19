@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useReveal from '../components/useReveal'
 import ServiceCard from '../components/ServiceCard'
 import AIChat from '../components/AIChat'
+import CertModal from '../components/CertModal'
 import Footer from '../components/Footer'
 import { COMPANY, STATS, SERVICES, TESTIMONIALS, CERTIFICATES, WHY_POINTS, WHY_STATS } from '../data/content'
 import './Home.css'
@@ -24,6 +25,7 @@ function Counter({ value, suffix }) {
 export default function Home() {
   useReveal()
   const nav = useNavigate()
+  const [selectedCert, setSelectedCert] = useState(null)
   return (
     <>
       <section className="hero">
@@ -53,10 +55,10 @@ export default function Home() {
             </div>
             <div className="hero-right">
               <div style={{position:'relative',width:'100%',maxWidth:378}}>
-                {/* <div className="float-chip chip-tl"> */}
-                  {/* <div className="chip-icon">✅</div> */}
-                  {/* <div><div className="chip-n">100%</div><div className="chip-l">Compliance Rate</div></div> */}
-                {/* </div> */}
+                {/* <div className="float-chip chip-tl">
+                  <div className="chip-icon">✅</div>
+                  <div><div className="chip-n">100%</div><div className="chip-l">Compliance Rate</div></div>
+                </div> */}
                 <div className="hero-card">
                   <div className="hc-header">
                     <div className="hc-logo-row">
@@ -169,19 +171,34 @@ export default function Home() {
           <div style={{textAlign:'center',marginBottom:44}}>
             <div className="eyebrow" style={{justifyContent:'center'}}><div className="eyebrow-dot"/>Our Credentials</div>
             <h2 className="section-heading">Trusted &amp; Certified</h2>
+            <p className="section-sub" style={{textAlign:'center',margin:'8px auto 0',fontSize:14,color:'var(--sll)'}}>
+              Click any certificate to view the original document
+            </p>
           </div>
           <div className="cert-grid">
             {CERTIFICATES.map((c,i)=>(
-              <div key={i} className={`cert-card reveal delay-${i+1}`}>
+              <div
+                key={i}
+                className={`cert-card reveal delay-${i+1} ${c.pdf !== undefined ? 'cert-clickable' : ''}`}
+                onClick={() => setSelectedCert(c)}
+                title={c.pdf ? `View ${c.title} certificate` : 'Certificate coming soon'}
+              >
                 <div className={`cert-badge cert-${c.color}`}>{c.icon}</div>
                 <div className="cert-title">{c.title}</div>
                 <div className="cert-desc">{c.desc}</div>
                 <div className={`cert-tag cert-tag-${c.color}`}>{c.tag}</div>
+                <div className="cert-view-hint">
+                  {c.pdf ? '📄 View Certificate →' : '📄 Coming Soon'}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {selectedCert && (
+        <CertModal cert={selectedCert} onClose={() => setSelectedCert(null)} />
+      )}
 
       <section className="section-pad" style={{background:'var(--g0)'}}>
         <div className="container">
@@ -209,7 +226,11 @@ export default function Home() {
         <div className="container">
           <div className="ai-grid">
             <div className="ai-left">
-              <div className="eyebrow" style={{color:'var(--g4)'}}><div className="eyebrow-dot" style={{background:'var(--g4)'}}/>GST & TAX SUPPORT</div>
+              {/* <div className="eyebrow" style={{color:'var(--g4)'}}><div className="eyebrow-dot" style={{background:'var(--g4)'}}/>AI-Powered</div>
+              <h2 className="section-heading" style={{color:'#fff'}}>Free AI Tax<br/>Assistant</h2>
+              <p className="ai-desc">Get instant answers to GST, Income Tax, PAN, TAN, DSC and compliance questions. Powered by AI — completely free, no login required.</p> */}
+
+                            <div className="eyebrow" style={{color:'var(--g4)'}}><div className="eyebrow-dot" style={{background:'var(--g4)'}}/>GST & TAX SUPPORT</div>
               <h2 className="section-heading" style={{color:'#fff'}}>Quick GST & Tax<br/>Help Desk</h2>
               <p className="ai-desc">Get instant answers to GST, Income Tax, PAN, TAN, DSC, MSME and Company Registration questions.</p>
               <div className="ai-badges">
@@ -219,7 +240,7 @@ export default function Home() {
               </div>
               {/* <div className="ai-disclaimer"><strong>Disclaimer:</strong> AI responses are for general information only and do not constitute professional financial or legal advice.</div> */}
 
-              <div className="ai-disclaimer">
+                          <div className="ai-disclaimer">
   <strong>Disclaimer:</strong> The information provided is for general guidance only. Please contact Easy Solutions for professional GST, tax, and compliance assistance.
 </div>
             </div>

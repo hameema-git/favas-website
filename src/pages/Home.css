@@ -99,6 +99,16 @@
 .cert-tag-green { background:var(--g1); color:var(--g8); }
 .cert-tag-blue { background:#EFF6FF; color:#1D4ED8; }
 .cert-tag-red { background:#FFF0F0; color:#B91C1C; }
+.cert-clickable { cursor: pointer; }
+.cert-view-hint {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--g7);
+  letter-spacing: .02em;
+  transition: color .18s;
+}
+.cert-card:hover .cert-view-hint { color: var(--g8); }
 
 /* TESTIMONIALS */
 .test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
