@@ -33,7 +33,7 @@
 .theme-btn-label { color: var(--sl); }
 
 /* ── PANEL ── */
-.theme-panel {
+/* .theme-panel {
   position: fixed;
   bottom: 148px;
   right: 26px;
@@ -45,12 +45,33 @@
   z-index: 998;
   overflow: hidden;
   animation: panelIn .22s cubic-bezier(.4,0,.2,1);
+} */
+
+.theme-panel {
+  position: fixed;
+  bottom: 148px;
+  right: 26px;
+
+  width: 340px;
+  max-width: calc(100vw - 24px);
+
+  max-height: 75vh;
+  overflow-y: auto;
+
+  background: #fff;
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.15);
+
+  z-index: 998;
+
+  animation: panelIn .22s cubic-bezier(.4,0,.2,1);
 }
 @keyframes panelIn {
   from { opacity: 0; transform: translateY(8px) scale(.97); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
-.theme-panel-header {
+/* .theme-panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,6 +80,44 @@
   font-weight: 700;
   color: var(--ink);
   border-bottom: 1px solid var(--bd);
+} */
+
+.theme-panel-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 16px 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+
+  background: #fff;
+
+  border-bottom: 1px solid var(--bd);
+}
+
+.theme-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-panel::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.theme-panel::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.theme-panel::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 .theme-panel-close {
   width: 26px;
@@ -149,4 +208,29 @@
   position: fixed;
   inset: 0;
   z-index: 997;
+}
+
+@media (max-width: 768px) {
+
+  .theme-panel {
+    width: 92vw;
+
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: 120px;
+
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .theme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-btn {
+    right: 18px;
+    bottom: 88px;
+  }
 }

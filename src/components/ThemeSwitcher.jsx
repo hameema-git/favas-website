@@ -316,7 +316,8 @@ export default function ThemeSwitcher() {
             ))}
           </div>
           <div className="theme-panel-footer">
-            To add a custom colour, edit <code>ThemeSwitcher.jsx</code> → <code>THEMES</code> array
+           Choose your preferred theme colour.
+            {/* To add a custom colour, edit <code>ThemeSwitcher.jsx</code> → <code>THEMES</code> array */}
           </div>
         </div>
       )}
